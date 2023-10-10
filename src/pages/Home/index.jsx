@@ -1,12 +1,11 @@
-import { IncludeButton } from "../../components/IncludeButton";
+import { Tag } from "../../components/Tag";
 import { Container } from "./styles";
 
 export function Home (){
   return(
     <Container>
-      <IncludeButton title="Incluir" />
-      <IncludeButton title="Entrar"/>
-      <IncludeButton title="Criar conta" disabled />
+      <Tag title="ingrediente" />
+
     </Container>
   )
 }

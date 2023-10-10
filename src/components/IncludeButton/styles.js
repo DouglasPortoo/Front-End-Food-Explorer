@@ -6,6 +6,8 @@ background-color: ${({ theme }) => theme.COLORS.Tomato_100};
 border-radius: 5px;
 border: none;
 
+text-align: center;
+
 color: ${({ theme }) => theme.COLORS.Light_100};
 
 font-family: 'Poppins', sans-serif;
