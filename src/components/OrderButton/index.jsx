@@ -1,0 +1,11 @@
+import { Container } from "./styles";
+import { Receipt } from "@phosphor-icons/react";
+
+export function OrderButton() {
+  return (
+    <Container>
+      <Receipt size={32}/>
+      Meu pedido (0)
+    </Container>
+  );
+}

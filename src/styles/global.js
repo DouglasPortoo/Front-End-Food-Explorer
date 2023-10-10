@@ -43,7 +43,6 @@ export default createGlobalStyle`
   }
 
   button:disabled {
-    /* filter: brightness(0.9); */
     cursor: not-allowed;
   }
 `

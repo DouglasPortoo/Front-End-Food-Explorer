@@ -1,10 +1,10 @@
-import { Stepper } from "../../components/Stepper";
+import { OrderButton } from "../../components/OrderButton";
 import { Container } from "./styles";
 
 export function Home (){
   return(
     <Container>
-      <Stepper  />
+      <OrderButton  />
 
     </Container>
   )
