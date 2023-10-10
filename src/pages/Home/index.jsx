@@ -1,10 +1,10 @@
-import { Tag } from "../../components/Tag";
+import { Stepper } from "../../components/Stepper";
 import { Container } from "./styles";
 
 export function Home (){
   return(
     <Container>
-      <Tag title="ingrediente" />
+      <Stepper  />
 
     </Container>
   )
