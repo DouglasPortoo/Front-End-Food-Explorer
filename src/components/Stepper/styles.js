@@ -10,7 +10,13 @@ justify-content: center;
 align-items: center;
 gap: 0.8rem;
 
-/* width: 100px;
-height: 32px; */
+
+>svg{
+  cursor: pointer;
+}
+
+svg:hover{
+  filter: brightness(0.9);
+}
 
 `
