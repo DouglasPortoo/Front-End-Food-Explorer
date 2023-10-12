@@ -5,7 +5,7 @@ export function Stepper() {
   return (
     <Container>
       <Plus />
-      01
+      <p>01</p>
       <Minus />
     </Container>
   );
