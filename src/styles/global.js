@@ -20,11 +20,12 @@ export default createGlobalStyle`
     color: ${({ theme }) => theme.COLORS.Light_100};
 
     -webkit-font-smoothing: antialiased;
+
+    font-family: 'Roboto Slab', serif; 
   }
 
   body, input, button, textarea {
     /* font-family: 'Poppins', sans-serif; */
-    font-family: 'Roboto Slab', serif; 
     font-size: 1rem;
     outline: none;
   }

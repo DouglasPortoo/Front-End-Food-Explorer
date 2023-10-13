@@ -1,6 +1,7 @@
+import { Banner, Carrossel, Container } from "./styles";
+
 import { Header } from "../../components/Header";
 import { Content } from "../../components/Content";
-import { Banner, Carrossel, Container } from "./styles";
 import { Footer } from "../../components/Footer";
 import { Card } from "../../components/Card";
 
