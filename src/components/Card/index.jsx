@@ -18,10 +18,6 @@ export function Card (){
       <Stepper/>
       <IncludeButton title="Incluir"/>
 
-      <div>
-      <Stepper/>
-      <IncludeButton title="Incluir"/>
-      </div>
       </Frame>
     </Container>
   )

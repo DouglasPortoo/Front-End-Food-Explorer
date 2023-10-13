@@ -56,8 +56,8 @@ margin-bottom: 3.12rem;
 
 export const Carrossel = styled.div`
 display: grid;
-grid-template-columns: repeat(4,300px);
-gap: 1.8rem;
+grid-template-columns: repeat(4,1fr);
+/* gap: 1.8rem; */
 
 margin-top: 1.5rem;
 margin-bottom: 3.12rem;
