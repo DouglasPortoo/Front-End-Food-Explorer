@@ -10,13 +10,14 @@ import { NoteItem } from "../../components/NoteItem";
 
 import { UploadSimple } from "@phosphor-icons/react";
 
-export function AdicionarPrato() {
-  return (
+export function EditarPrato(){
+  return(
     <Container>
+      <Container>
       <Header />
       <Content>
-        <ButtonText title="voltar" />
-        <h1>Adicionar Prato</h1>
+        <ButtonText title="Voltar" />
+        <h1>Editar Prato</h1>
 
         <Form>
           <div>
@@ -66,7 +67,7 @@ export function AdicionarPrato() {
             </label>
             <label className="preço">
               Preço
-              <Input placeholder="R$ 00,00" type="Number" step=".01" min="0" />
+              <Input placeholder="R$ 00,00" type="Number" step=".01" min="0"  />
             </label>
           </div>
 
@@ -75,16 +76,18 @@ export function AdicionarPrato() {
             <textarea
               cols="30"
               rows="11"
-              placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
+              placeholder="A Salada César é uma opção refrescante para o verão."
             ></textarea>
           </label>
 
           <div className="button">
+            <button type="button">Excluir Prato</button>
             <IncludeButton type="submit" title="Salvar Alterações" />
           </div>
         </Form>
       </Content>
       <Footer />
     </Container>
-  );
+    </Container>
+  )
 }

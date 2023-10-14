@@ -11,10 +11,10 @@ grid-template-areas:
 "footer";
 
 h1{
-  margin: 24px 0 32px;
+  margin: 1.5rem 0 2rem;
   color: ${({ theme }) => theme.COLORS.Light_300};
   font-family: 'Poppins', sans-serif;
-  font-size: 32px;
+  font-size: 2rem;
   font-weight: 500;
   line-height: 140%;
 }
@@ -23,45 +23,45 @@ h1{
 export const Form= styled.form`
 display: flex;
 flex-direction: column;
-gap: 32px;
+gap: 2rem;
 
-margin-bottom: 115px;
+margin-bottom: 7.18rem;
 
 >div{
   display: flex;
-  gap: 32px;
+  gap: 2rem;
   
 }
 
 label{
 display: flex;
 flex-direction: column;
-gap: 16px;
+gap: 1rem;
 width: 100%;
 
 color: ${({ theme }) => theme.COLORS.Light_400};
-font-size: 16px;
+font-size: 1rem;
 font-weight: 400;
 line-height: 100%;
 }
 
 .imagem{
-  width: 700px;
+  width: 43rem;
 
   >div{
   display: flex;
-  padding: 9px;
+  padding: 0.5rem;
   justify-content: center;
   align-items: center;
-  gap: 8px;
+  gap: 0,5rem;
   background-color: ${({ theme }) => theme.COLORS.Dark_900} ;
   border:none;
-  border-radius: 5px;
+  border-radius: 0.3rem;
   color: ${({ theme }) => theme.COLORS.Light_100};
   font-family: 'Poppins', sans-serif; 
-  font-size: 14px;
+  font-size: 0.8rem;
   font-weight: 500;
-  line-height: 24px; 
+  line-height: 1.5rem; 
   }
 
   div>input{
@@ -71,17 +71,17 @@ line-height: 100%;
 
 label .tags {
 display:flex;
-gap: 16px;
+gap: 1rem;
 background-color: ${({ theme }) => theme.COLORS.Dark_900} ;
 color: ${({ theme }) => theme.COLORS.Light_500};
-padding: 5px 8px;
-border-radius: 5px;
+padding: 0.3rem 0.5rem;
+border-radius: 0.3rem;
 }
 
 .preço{
-width: 200px;
+width: 12.5rem;
 input{
-  padding: 16px;
+  padding: 1rem;
 }
 }
 
@@ -89,21 +89,22 @@ textarea{
 background-color: ${({ theme }) => theme.COLORS.Dark_900} ;
 color: ${({ theme }) => theme.COLORS.Light_100};
 border: none;
-padding: 12px;
-border-radius: 5px;
+padding: 0.75rem;
+border-radius: 0.3rem;
 resize: none;
 
 &::placeholder{
 color: ${({ theme }) => theme.COLORS.Light_600};
+font-family: 'Poppins',sans-serif;
 
-font-size: 16px;
+font-size: 1rem;
 font-weight: 400;
 line-height: 100%;
 }
 
   &:focus{
     border: 1px solid white;
-    border-radius: 5px;
+    border-radius: 0.3rem;
     }
 }
 

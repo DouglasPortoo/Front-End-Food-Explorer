@@ -11,4 +11,11 @@ align-items: center;
 
 background-color:${({ theme }) => theme.COLORS.Dark_600};
 
+p{
+font-family: 'Poppins',sans-serif;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 160%; 
+}
 `
