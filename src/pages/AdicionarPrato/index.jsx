@@ -6,7 +6,7 @@ import { Footer } from "../../components/Footer";
 import { ButtonText } from "../../components/ButtonText";
 import { Input } from "../../components/Input";
 import { IncludeButton } from "../../components/IncludeButton";
-import { Tag } from "../../components/Tag";
+import { NoteItem } from "../../components/NoteItem";
 
 import { UploadSimple } from "@phosphor-icons/react";
 
@@ -22,10 +22,11 @@ export function AdicionarPrato() {
           <div>
             <label className="imagem">
               Imagem do prato
-              <button type="button">
-              <UploadSimple/>
-              Selecione imagem
-              </button>
+              <div>
+                <UploadSimple size={25} />
+                Selecione imagem
+                <input type="file" />
+              </div>
             </label>
             <label>
               Nome
@@ -37,7 +38,7 @@ export function AdicionarPrato() {
               <Input
                 placeholder="Refeição"
                 type="text"
-                data={["pratos", "bebidas", "sobremesas"]}
+                data={["Pratos", "Bebidas", "Sobremesas"]}
                 list="Categoria"
                 datalisId="Categoria"
               />
@@ -48,10 +49,19 @@ export function AdicionarPrato() {
             <label>
               Ingredientes
               <div className="tags">
-                <Tag title="teste" />
-                <Tag title="teste" />
-                <Tag title="teste" />
-                <Tag title="teste" />
+              <NoteItem
+                value="Pão Naan"
+                // onChange={(e) => setNewTag(e.target.value)}
+                // onClick={handleNewTag}
+                // value={newTag}
+              />
+              <NoteItem
+                isnew
+                placeholder="Adicionar"
+                // onChange={(e) => setNewTag(e.target.value)}
+                // onClick={handleNewTag}
+                // value={newTag}
+              />
               </div>
             </label>
             <label className="preço">

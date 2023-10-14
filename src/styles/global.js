@@ -1,50 +1,50 @@
 import { createGlobalStyle } from "styled-components"
 
 export default createGlobalStyle`
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+:root{
+font-size: 16px;
+
+  @media (max-width:768px) {
+    font-size: 12px;
   }
+}
 
-  :root{
-    font-size: 16px;
+body {
+background-color: ${({ theme }) => theme.COLORS.Dark_400};
+color: ${({ theme }) => theme.COLORS.Light_100};
 
-    @media (max-width:768px) {
-      font-size: 12px;
-    }
-  }
+-webkit-font-smoothing: antialiased;
 
-  body {
-    background-color: ${({ theme }) => theme.COLORS.Dark_400};
-    color: ${({ theme }) => theme.COLORS.Light_100};
+/* font-family: 'Roboto Slab', serif;  */
+}
 
-    -webkit-font-smoothing: antialiased;
+body, input, button, textarea {
+/* font-family: 'Poppins', sans-serif; */
+font-size: 1rem;
+outline: none;
+}
 
-    font-family: 'Roboto Slab', serif; 
-  }
+a {
+text-decoration: none;
+}
 
-  body, input, button, textarea {
-    /* font-family: 'Poppins', sans-serif; */
-    
-    font-size: 1rem;
-    outline: none;
-  }
+button, a {
+cursor: pointer;
+/* transition: filter 0.2s; */
+}
 
-  a {
-    text-decoration: none;
-  }
+button:hover, a:hover {
+/* filter: brightness(0.9); */
+}
 
-  button, a {
-    cursor: pointer;
-    /* transition: filter 0.2s; */
-  }
-
-  button:hover, a:hover {
-    /* filter: brightness(0.9); */
-  }
-
-  button:disabled {
-    cursor: not-allowed;
-  }
+button:disabled {
+cursor: not-allowed;
+}
 `
