@@ -1,11 +1,11 @@
 import { Container } from "./styles";
 import { Receipt } from "@phosphor-icons/react";
 
-export function OrderButton() {
+export function OrderButton({title, ...rest}) {
   return (
-    <Container>
+    <Container {...rest}>
       <Receipt size={20}/>
-      Meu pedido (0)
+      {title}
     </Container>
   );
 }

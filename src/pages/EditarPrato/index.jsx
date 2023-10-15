@@ -9,14 +9,22 @@ import { IncludeButton } from "../../components/IncludeButton";
 import { NoteItem } from "../../components/NoteItem";
 
 import { UploadSimple } from "@phosphor-icons/react";
+import { useNavigate } from "react-router-dom";
 
 export function EditarPrato(){
+  const navigate = useNavigate();
+
+  function handleBack() {
+    navigate("/");
+  }
+
+
   return(
     <Container>
       <Container>
       <Header />
       <Content>
-        <ButtonText title="Voltar" />
+        <ButtonText title="Voltar" onClick={handleBack}/>
         <h1>Editar Prato</h1>
 
         <Form>

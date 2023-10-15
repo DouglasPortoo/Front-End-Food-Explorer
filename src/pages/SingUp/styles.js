@@ -57,7 +57,7 @@ flex-direction: column;
 gap: 8px;
 }
 
->p{
+>a, p{
 text-align: center;
 
 color: ${({ theme }) => theme.COLORS.Light_100};

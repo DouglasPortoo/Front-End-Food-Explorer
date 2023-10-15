@@ -7,7 +7,19 @@ import { Card } from "../../components/Card";
 
 import BannerImg from "../../assets/banner.svg"
 
+import { useNavigate } from "react-router-dom";
+
+
 export function Home (){
+ 
+  const navigate = useNavigate();
+
+  function handleDetails(id) {
+    navigate(`Prato/${id}`);
+  }
+
+  
+
   return(
     <Container>
       <Header  />
@@ -23,27 +35,27 @@ export function Home (){
 
       <h1>Refeições</h1>
       <Carrossel>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
+        <Card onClick={()=>handleDetails(1)}/>
+        <Card onClick={()=>handleDetails(1)}/>
+        <Card onClick={()=>handleDetails(1)}/>
+        <Card onClick={()=>handleDetails(1)}/>
         
       </Carrossel>
 
       <h1>Sobremesas</h1>
       <Carrossel>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
+        <Card onClick={()=>handleDetails(1)}/>
+        <Card onClick={()=>handleDetails(1)}/>
+        <Card onClick={()=>handleDetails(1)}/>
+        <Card onClick={()=>handleDetails(1)}/>
       </Carrossel>
 
       <h1>Bebidas</h1>
       <Carrossel>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
+        <Card onClick={()=>handleDetails(1)}/>
+        <Card onClick={()=>handleDetails(1)}/>
+        <Card onClick={()=>handleDetails(1)}/>
+        <Card onClick={()=>handleDetails(1)}/>
       </Carrossel>
         
       </Content>

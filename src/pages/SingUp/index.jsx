@@ -4,6 +4,7 @@ import { IncludeButton } from "../../components/IncludeButton";
 import { Input } from "../../components/Input";
 
 import Logo from "../../assets/logo.svg";
+import { Link } from "react-router-dom";
 
 export function SingUp() {
   return (
@@ -16,11 +17,15 @@ export function SingUp() {
           <h1>Crie sua conta</h1>
           <label>
             Seu nome
-            <Input placeholder="Exemplo: Maria da Silva" type="text" />
+            <Input placeholder="Exemplo: Maria da Silva" type="text" required />
           </label>
           <label>
             Email
-            <Input placeholder="Exemplo: exemplo@exemplo.com.br" type="email" />
+            <Input
+              placeholder="Exemplo: exemplo@exemplo.com.br"
+              type="email"
+              required
+            />
           </label>
           <label>
             Senha
@@ -28,10 +33,14 @@ export function SingUp() {
               placeholder="No mínimo 6 caracteres"
               type="password"
               minlength="6"
+              required
             />
           </label>
           <IncludeButton type="submit" title="Criar conta" />
-          <p>Já tenho uma conta</p>
+
+          <Link to="/">
+            <p>Já tenho uma conta</p>
+          </Link>
         </Form>
       </FormContainer>
     </Container>
