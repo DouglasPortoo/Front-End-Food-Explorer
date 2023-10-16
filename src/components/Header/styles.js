@@ -17,6 +17,8 @@ background-color:${({ theme }) => theme.COLORS.Dark_600};
   overflow: hidden;
   position: absolute;
 
+    border-radius: none;
+
 }
 
 >svg{

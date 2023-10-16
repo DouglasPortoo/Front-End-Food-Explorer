@@ -21,11 +21,11 @@ export const Container = styled.div`
     &:placeholder {
       color: ${({ theme }) => theme.COLORS.Light_500};
     }
-
+/* 
     &:focus{
       border: 1px solid white;
       border-radius: 5px;
-    }
+    } */
   }
 
   > svg {
