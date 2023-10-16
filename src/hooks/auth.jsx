@@ -5,7 +5,7 @@ const AuthContext = createContext({});
 // import { api } from "../services/api";
 
 function AuthProvider({ children }) {
-  const [data, setData] = useState({role: ""});
+  const [data, setData] = useState({role: "admin"});
 
   // async function signIn({ email, password }) {
   //   try {

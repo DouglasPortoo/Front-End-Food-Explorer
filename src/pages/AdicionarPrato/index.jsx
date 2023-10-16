@@ -88,7 +88,7 @@ export function AdicionarPrato() {
           </label>
 
           <div className="button">
-            <IncludeButton type="submit" title="Salvar Alterações" />
+            <IncludeButton type="submit" title="Adicionar Prato" />
           </div>
         </Form>
       </Content>
