@@ -7,7 +7,7 @@ import { useAuth } from "../../hooks/auth";
 import { useNavigate } from "react-router-dom";
 
 export function Header() {
-  const { user } = useAuth();
+  const { user, signOut } = useAuth();
 
   const navigate = useNavigate();
 
@@ -15,6 +15,9 @@ export function Header() {
     navigate(`/AdicionarPrato`);
   }
 
+  function handleSignOut() {
+    signOut();
+  }
 
   return (
     <Container>
@@ -28,12 +31,12 @@ export function Header() {
         icon={MagnifyingGlass}
       />
       {user.role === "admin" ? (
-        <OrderButton title="Novo prato" onClick={()=>handleNewPlate()}/>
+        <OrderButton title="Novo prato" onClick={() => handleNewPlate()} />
       ) : (
         <OrderButton title="Meu pedido (0)" />
       )}
 
-      <SignOut size={62} />
+      <SignOut size={62} onClick={handleSignOut} />
     </Container>
   );
 }

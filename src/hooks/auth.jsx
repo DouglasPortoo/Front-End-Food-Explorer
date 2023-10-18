@@ -29,11 +29,11 @@ function AuthProvider({ children }) {
     }
   }
 
-  // function signOut() {
-  //   localStorage.removeItem("@estock:user");
+  function signOut() {
+    localStorage.removeItem("@foodexplorer:user");
 
-  //   setData({});
-  // }
+    setData({});
+  }
 
   useEffect(() => {
     const user = localStorage.getItem("@foodexplorer:user");
@@ -49,6 +49,7 @@ function AuthProvider({ children }) {
     <AuthContext.Provider
       value={{
         signIn,
+        signOut,
         user: data.user
       }}
     >
