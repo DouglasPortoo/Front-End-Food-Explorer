@@ -1,4 +1,4 @@
-import { createContext, useContext, useState} from "react";
+import { createContext, useContext, useEffect, useState} from "react";
 
 const AuthContext = createContext({});
 
@@ -35,15 +35,15 @@ function AuthProvider({ children }) {
   //   setData({});
   // }
 
-  // useEffect(() => {
-  //   const user = localStorage.getItem("@estock:user");
+  useEffect(() => {
+    const user = localStorage.getItem("@foodexplorer:user");
 
-  //   if (user) {
-  //     setData({
-  //       user: JSON.parse(user),
-  //     });
-  //   }
-  // }, []);
+    if (user) {
+      setData({
+        user: JSON.parse(user),
+      });
+    }
+  }, []);
 
   return (
     <AuthContext.Provider
