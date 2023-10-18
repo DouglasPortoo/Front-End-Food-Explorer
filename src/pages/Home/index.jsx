@@ -63,8 +63,7 @@ export function Home() {
 
         <h1>Refeições</h1>
         <Carrossel>
-          {pratos.length > 0 &&
-            pratos.map((prato) => (
+          {pratos.map((prato) => (
               <Card
                 key={prato.id}
                 data={prato}

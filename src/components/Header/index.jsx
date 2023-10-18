@@ -1,9 +1,15 @@
 import { Container } from "./styles";
+
 import Logo from "../../assets/logo.svg";
+import LogoAdmin from "../../assets/logoAdmin.svg";
+
 import { MagnifyingGlass, SignOut } from "@phosphor-icons/react";
+
 import { OrderButton } from "../OrderButton";
 import { Input } from "../Input";
+
 import { useAuth } from "../../hooks/auth";
+
 import { useNavigate } from "react-router-dom";
 
 export function Header() {
@@ -22,7 +28,7 @@ export function Header() {
 
   return (
     <Container>
-      <img src={Logo} alt="Logo" />
+      {user.role === "admin" ? <img src={LogoAdmin} alt="Logo" />: <img src={Logo} alt="Logo" />}
       <label htmlFor="search">Busque por pratos ou ingredientes</label>
 
       <Input
