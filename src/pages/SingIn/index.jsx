@@ -17,7 +17,6 @@ export function SingIn() {
   const { signIn } = useAuth();
 
   function handleSignIn() {
-    console.log({ email, password })
     signIn({ email, password });
   }
   return (
@@ -26,7 +25,7 @@ export function SingIn() {
         <img src={Logo} alt="" />
       </ImageLogo>
       <FormContainer>
-        <Form >
+        <Form>
           <h1>Faça login</h1>
           <label>
             Email
@@ -34,7 +33,7 @@ export function SingIn() {
               placeholder="Exemplo: exemplo@exemplo.com.br"
               type="email"
               required
-              onChange={(e)=>setEmail(e.target.value) }
+              onChange={(e) => setEmail(e.target.value)}
             />
           </label>
           <label>
@@ -44,7 +43,7 @@ export function SingIn() {
               type="password"
               minLength="6"
               required
-              onChange={(e)=>setPassword(e.target.value) }
+              onChange={(e) => setPassword(e.target.value)}
             />
           </label>
           <IncludeButton type="button" title="Entrar" onClick={handleSignIn} />
