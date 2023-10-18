@@ -15,7 +15,12 @@ grid-template-areas:
 export const Frame = styled.div`
 display:flex;
 gap:48px;
-margin-top: 42px;
+margin-top: 5.72rem;
+
+>img{
+  width: 24.3rem;
+  height: 24.3rem;
+}
 `
 
 export const SubFrame = styled.div`

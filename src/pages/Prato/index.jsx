@@ -13,12 +13,24 @@ import { ButtonText } from "../../components/ButtonText";
 import { Tag } from "../../components/Tag";
 import { Stepper } from "../../components/Stepper";
 import { IncludeButton } from "../../components/IncludeButton";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import { useAuth } from "../../hooks/auth";
+import { useEffect, useState } from "react";
+import avatarPlaceholder from "../../../assets/semfoto.svg";
+import { api } from "../../services/api";
 
 export function Prato() {
   const { user } = useAuth();
+
+  const [data, setData] = useState("");
+
+  const params = useParams();
+
+  const avatarUrl =
+    data.img !== null
+      ? `${api.defaults.baseURL}/files/${data.img}`
+      : avatarPlaceholder;
 
   const navigate = useNavigate();
 
@@ -30,6 +42,15 @@ export function Prato() {
     navigate(`/EditarPrato/${id}`);
   }
 
+  useEffect(() => {
+    async function fetchNote() {
+      const response = await api.get(`/pratos/${params.id}`);
+      setData(response.data);
+    }
+
+    fetchNote();
+  }, [params.id]);
+
   return (
     <Container>
       <Header />
@@ -37,30 +58,29 @@ export function Prato() {
         <ButtonText title="Voltar" onClick={handleBack} />
 
         <Frame>
-          <img src="https://github.com/DouglasPortoo.png" alt="" />
+          <img src={avatarUrl} />
 
           <SubFrame>
-            <h1>Salada Ravanello</h1>
-            <p>
-              Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.
-              O pão naan dá um toque especial.
-            </p>
+            <h2>{data.title}</h2>
+            <p>{data.description}</p>
 
             <TagContainer>
-              <Tag title="alface" />
-              <Tag title="cebola" />
-              <Tag title="pepino" />
-              <Tag title="rabanete" />
-              <Tag title="tomate" />
+              {data.tags &&
+                data.tags.map((tag, index) => (
+                  <Tag key={index} title={tag.ingredients} />
+                ))}
             </TagContainer>
 
             <ButtonsContainer>
               {user.role === "admin" ? (
-                <IncludeButton title="Editar Prato" onClick={()=>handleEdit(1)} />
+                <IncludeButton
+                  title="Editar Prato"
+                  onClick={() => handleEdit(1)}
+                />
               ) : (
                 <>
                   <Stepper />
-                  <IncludeButton title="Incluir-R$25,00"  />
+                  <IncludeButton title="Incluir-R$25,00" />
                 </>
               )}
             </ButtonsContainer>
