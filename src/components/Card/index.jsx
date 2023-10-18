@@ -7,27 +7,27 @@ import { Stepper } from "../Stepper";
 
 import { useAuth } from "../../hooks/auth";
 
-import { Navigate } from "react-router-dom";
+// import { Navigate } from "react-router-dom";
 
-export function Card({ ...rest }) {
+export function Card({ data,...rest }) {
   const { user } = useAuth();
 
-  function handleEdit(id) {
-    Navigate(`/EditarPrato/${id}`);
-  }
+  // function handleEdit(id) {
+  //   Navigate(`/EditarPrato/${id}`);
+  // }
 
   return (
     <Container {...rest}>
       <FavoriteButton>
-        {user.role === "admin" ? (
+        {user && user.role === "admin" ? (
           <Pencil size={25} />
         ) : (
           <Heart size={20} color="white" />
         )}
       </FavoriteButton>
       <img src="https://github.com/DouglasPortoo.png" alt="" />
-      <h1>Torradas de Parma</h1>
-      <p>Presunto de parma e rúcula em um pão com fermentação natural.</p>
+      <h1>{data.title}</h1>
+      <p>{data.description}</p>
       <span>R$ 25,97</span>
       {user.role === "" && (
         <Frame>
