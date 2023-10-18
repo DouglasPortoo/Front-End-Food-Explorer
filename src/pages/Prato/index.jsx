@@ -75,7 +75,7 @@ export function Prato() {
               {user.role === "admin" ? (
                 <IncludeButton
                   title="Editar Prato"
-                  onClick={() => handleEdit(1)}
+                  onClick={() => handleEdit(data.id)}
                 />
               ) : (
                 <>
