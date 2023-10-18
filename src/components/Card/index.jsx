@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Container, FavoriteButton, Frame } from "./styles";
 
 import { Heart, Pencil } from "@phosphor-icons/react";
@@ -7,14 +8,12 @@ import { Stepper } from "../Stepper";
 
 import { useAuth } from "../../hooks/auth";
 
-// import { Navigate } from "react-router-dom";
+import avatarPlaceholder from "../../../assets/semfoto.svg";
+import { api } from "../../services/api";
 
 export function Card({ data,...rest }) {
   const { user } = useAuth();
 
-  // function handleEdit(id) {
-  //   Navigate(`/EditarPrato/${id}`);
-  // }
 
   return (
     <Container {...rest}>
@@ -25,11 +24,11 @@ export function Card({ data,...rest }) {
           <Heart size={20} color="white" />
         )}
       </FavoriteButton>
-      <img src="https://github.com/DouglasPortoo.png" alt="" />
+      <img src={data.img === null ? avatarPlaceholder:`${api.defaults.baseURL}/files/${data.img}`} />
       <h1>{data.title}</h1>
       <p>{data.description}</p>
       <span>R$ 25,97</span>
-      {user.role === "" && (
+      {user.role === "client" && (
         <Frame>
           <Stepper />
           <IncludeButton title="Incluir" />
