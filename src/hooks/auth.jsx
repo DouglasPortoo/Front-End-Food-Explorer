@@ -1,9 +1,8 @@
-import { createContext, useContext, useEffect, useState} from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const AuthContext = createContext({});
 
 import { api } from "../services/api";
-
 
 function AuthProvider({ children }) {
   const [data, setData] = useState({});
@@ -17,7 +16,6 @@ function AuthProvider({ children }) {
 
       localStorage.setItem("@foodexplorer:user", JSON.stringify(user));
       localStorage.setItem("@foodexplorer:token", token);
-
 
       setData({ user, token });
     } catch (error) {
@@ -44,10 +42,10 @@ function AuthProvider({ children }) {
       api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
     }
 
-      setData({
-        token,
-        user: JSON.parse(user),
-      });
+    setData({
+      token,
+      user: JSON.parse(user),
+    });
   }, []);
 
   return (
@@ -55,7 +53,7 @@ function AuthProvider({ children }) {
       value={{
         signIn,
         signOut,
-        user: data.user
+        user: data.user,
       }}
     >
       {children}

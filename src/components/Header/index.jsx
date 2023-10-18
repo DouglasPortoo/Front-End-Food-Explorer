@@ -17,6 +17,7 @@ export function Header() {
 
   function handleSignOut() {
     signOut();
+    navigate("/");
   }
 
   return (

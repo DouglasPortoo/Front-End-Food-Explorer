@@ -30,8 +30,6 @@ export function Prato() {
     navigate(`/EditarPrato/${id}`);
   }
 
-  console.log(user);
-
   return (
     <Container>
       <Header />
