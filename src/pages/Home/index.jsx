@@ -32,48 +32,46 @@ export function Home() {
     async function fetchPratos() {
       const response = await api.get(`/pratos?title=${search}`);
       setMenuCompleto(response.data);
-      setPratos([])
-      setBebidas([])
-      setSobremesas([])
+      setPratos([]);
+      setBebidas([]);
+      setSobremesas([]);
     }
     fetchPratos();
-    
   }, [search]);
 
   useEffect(() => {
-    const pratosFiltradas =menuCompleto.filter(
-      (prato) => prato.category == "Pratos"
+    const pratosFiltradas = menuCompleto.filter(
+      (prato) => prato.category == "Refeições"
     );
     setPratos(pratosFiltradas);
 
-    if (pratosFiltradas.length>0){
+    if (pratosFiltradas.length > 0) {
       setPratos(pratosFiltradas);
-    }else{
-      setPratos([])
+    } else {
+      setPratos([]);
     }
 
     const bebidasFiltradas = menuCompleto.filter(
       (bebida) => bebida.category == "Bebidas"
     );
-    
-    if (bebidasFiltradas.length>0){
+
+    if (bebidasFiltradas.length > 0) {
       setBebidas(bebidasFiltradas);
-    }else{
-      setBebidas([])
+    } else {
+      setBebidas([]);
     }
 
     const sobremesasFiltradas = menuCompleto.filter(
       (sobremesa) => sobremesa.category == "Sobremesas"
     );
-    
-    if (sobremesasFiltradas.length>0){
+
+    if (sobremesasFiltradas.length > 0) {
       setSobremesas(sobremesasFiltradas);
-    }else{
-      setSobremesas([])
+    } else {
+      setSobremesas([]);
     }
 
     console.log(menuCompleto);
-    
   }, [menuCompleto]);
 
   return (
@@ -88,7 +86,7 @@ export function Home() {
           </div>
         </Banner>
 
-        {pratos.length> 0 &&  <h1>Refeiçoes</h1>}
+        {pratos.length > 0 && <h1>Refeiçoes</h1>}
 
         <Carrossel>
           {pratos.map((prato) => (
@@ -100,8 +98,8 @@ export function Home() {
           ))}
         </Carrossel>
 
-        {sobremesas.length> 0 &&  <h1>Sobremesas</h1>}    
-        
+        {sobremesas.length > 0 && <h1>Sobremesas</h1>}
+
         <Carrossel>
           {sobremesas.map((prato) => (
             <Card
@@ -111,9 +109,9 @@ export function Home() {
             />
           ))}
         </Carrossel>
-        
-        {bebidas.length> 0 &&  <h1>Bebidas</h1>}
-        
+
+        {bebidas.length > 0 && <h1>Bebidas</h1>}
+
         <Carrossel>
           {bebidas.map((prato) => (
             <Card

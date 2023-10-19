@@ -27,7 +27,7 @@ export function Card({ data,...rest }) {
       <img src={data.img === null ? avatarPlaceholder:`${api.defaults.baseURL}/files/${data.img}`} />
       <h1>{data.title}</h1>
       <p>{data.description}</p>
-      <span>R$ 25,97</span>
+      <span>R$ {data.price}</span>
       {user.role === "client" && (
         <Frame>
           <Stepper />
