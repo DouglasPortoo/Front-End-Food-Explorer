@@ -6,6 +6,7 @@ import { api } from "../services/api";
 
 function AuthProvider({ children }) {
   const [data, setData] = useState({});
+  // const [search, setSearch] = useState('');
 
   async function signIn({ email, password }) {
     try {
@@ -53,6 +54,8 @@ function AuthProvider({ children }) {
       value={{
         signIn,
         signOut,
+        // setSearch,
+        // search,
         user: data.user,
       }}
     >

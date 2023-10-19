@@ -26,16 +26,26 @@ export function Header() {
     navigate("/");
   }
 
+  // function handleSearch(e) {
+  //   setSearch(e.target.value)
+  // }
+
   return (
     <Container>
-      {user.role === "admin" ? <img src={LogoAdmin} alt="Logo" />: <img src={Logo} alt="Logo" />}
+      {user.role === "admin" ? (
+        <img src={LogoAdmin} alt="Logo" />
+      ) : (
+        <img src={Logo} alt="Logo" />
+      )}
       <label htmlFor="search">Busque por pratos ou ingredientes</label>
 
       <Input
+        type="text"
         placeholder="Busque por pratos ou ingredientes"
         id="search"
-        type="text"
         icon={MagnifyingGlass}
+        // onChange={(e) =>handleSearch(e) }
+        // value={search}
       />
       {user.role === "admin" ? (
         <OrderButton title="Novo prato" onClick={() => handleNewPlate()} />

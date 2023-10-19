@@ -12,7 +12,11 @@ import { useEffect, useState } from "react";
 
 import { api } from "../../services/api";
 
+import { useAuth } from "../../hooks/auth";
+
 export function Home() {
+  const { search } = useAuth();
+
   const [menuCompleto, setMenuCompleto] = useState([]);
   const [pratos, setPratos] = useState([]);
   const [bebidas, setBebidas] = useState([]);
@@ -26,27 +30,50 @@ export function Home() {
 
   useEffect(() => {
     async function fetchPratos() {
-      const response = await api.get(`/pratos`);
+      const response = await api.get(`/pratos?title=${search}`);
       setMenuCompleto(response.data);
+      setPratos([])
+      setBebidas([])
+      setSobremesas([])
     }
     fetchPratos();
-  }, []);
+    
+  }, [search]);
 
   useEffect(() => {
-    const pratosFiltradas = menuCompleto.filter(
+    const pratosFiltradas =menuCompleto.filter(
       (prato) => prato.category == "Pratos"
     );
     setPratos(pratosFiltradas);
 
+    if (pratosFiltradas.length>0){
+      setPratos(pratosFiltradas);
+    }else{
+      setPratos([])
+    }
+
     const bebidasFiltradas = menuCompleto.filter(
       (bebida) => bebida.category == "Bebidas"
     );
-    setBebidas(bebidasFiltradas);
+    
+    if (bebidasFiltradas.length>0){
+      setBebidas(bebidasFiltradas);
+    }else{
+      setBebidas([])
+    }
 
     const sobremesasFiltradas = menuCompleto.filter(
       (sobremesa) => sobremesa.category == "Sobremesas"
     );
-    setSobremesas(sobremesasFiltradas);
+    
+    if (sobremesasFiltradas.length>0){
+      setSobremesas(sobremesasFiltradas);
+    }else{
+      setSobremesas([])
+    }
+
+    console.log(menuCompleto);
+    
   }, [menuCompleto]);
 
   return (
@@ -61,18 +88,20 @@ export function Home() {
           </div>
         </Banner>
 
-        <h1>Refeições</h1>
+        {pratos.length> 0 &&  <h1>Refeiçoes</h1>}
+
         <Carrossel>
           {pratos.map((prato) => (
-              <Card
-                key={prato.id}
-                data={prato}
-                onClick={() => handleDetails(prato.id)}
-              />
-            ))}
+            <Card
+              key={prato.id}
+              data={prato}
+              onClick={() => handleDetails(prato.id)}
+            />
+          ))}
         </Carrossel>
 
-        <h1>Sobremesas</h1>
+        {sobremesas.length> 0 &&  <h1>Sobremesas</h1>}    
+        
         <Carrossel>
           {sobremesas.map((prato) => (
             <Card
@@ -82,8 +111,9 @@ export function Home() {
             />
           ))}
         </Carrossel>
-
-        <h1>Bebidas</h1>
+        
+        {bebidas.length> 0 &&  <h1>Bebidas</h1>}
+        
         <Carrossel>
           {bebidas.map((prato) => (
             <Card
