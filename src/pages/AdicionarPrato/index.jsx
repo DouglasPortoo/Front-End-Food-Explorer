@@ -14,12 +14,12 @@ import { useState } from "react";
 import { api } from "../../services/api";
 
 export function AdicionarPrato() {
-  const [name, setName] = useState("");
+  const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
-  const [tags, setTags] = useState([]);
-  const [newTag, setNewTag] = useState("");
+  const [ingredients, setIngredients] = useState([]);
+  const [newIngredients, setNewIngredients] = useState("");
 
   const navigate = useNavigate();
 
@@ -28,28 +28,30 @@ export function AdicionarPrato() {
   }
 
   function handleAddTag() {
-    if (tags.includes(newTag)) {
+    if (ingredients.includes(newIngredients)) {
       return alert("Voce ja adicionou esse ingrediente");
     }
-    setTags((prevState) => [...prevState, newTag]);
-    setNewTag("");
+    setIngredients((prevState) => [...prevState, newIngredients]);
+    setNewIngredients("");
   }
 
   function handleRemoveTag(deleted) {
-    setTags((prevState) => prevState.filter((tag) => tag !== deleted));
+    setIngredients((prevState) =>
+      prevState.filter((ingredients) => ingredients !== deleted)
+    );
   }
 
   async function handleAddPrato() {
-    if (!name) {
+    if (!title) {
       return alert("De um nome para o prato");
     }
     if (!category) {
       return alert("Selecione uma categoria");
     }
-    if (tags.length == 0) {
+    if (ingredients.length == 0) {
       return alert("Adicione ao menos um ingrediente ao prato");
     }
-    if (newTag.length > 0) {
+    if (newIngredients.length > 0) {
       return alert("adicione o ingrediente ou remova para continuar");
     }
     if (!price) {
@@ -58,13 +60,13 @@ export function AdicionarPrato() {
     if (!description) {
       return alert("Escreva uma breve descrição do prato");
     }
-    console.log(name, category, price, tags, description);
+    console.log(title, category, price, ingredients, description);
     const response = await api.post("/pratos", {
-      title: name,
+      title,
       category,
       description,
       price,
-      ingredients: tags,
+      ingredients,
     });
     alert(response.data);
     navigate("/");
@@ -92,7 +94,7 @@ export function AdicionarPrato() {
               <Input
                 placeholder="Ex.: Salada Ceasar"
                 type="email"
-                onChange={(e) => setName(e.target.value)}
+                onChange={(e) => setTitle(e.target.value)}
               />
             </label>
 
@@ -120,20 +122,20 @@ export function AdicionarPrato() {
             <label>
               Ingredientes
               <div className="tags">
-                {tags &&
-                  tags.map((tag, index) => (
+                {ingredients &&
+                  ingredients.map((ingredient, index) => (
                     <NoteItem
                       key={String(index)}
-                      value={tag}
-                      onClick={() => handleRemoveTag(tag)}
+                      value={ingredient}
+                      onClick={() => handleRemoveTag(ingredient)}
                     />
                   ))}
                 <NoteItem
                   isnew
                   placeholder="Adicionar"
-                  onChange={(e) => setNewTag(e.target.value)}
+                  onChange={(e) => setNewIngredients(e.target.value)}
                   onClick={handleAddTag}
-                  value={newTag}
+                  value={newIngredients}
                 />
               </div>
             </label>
