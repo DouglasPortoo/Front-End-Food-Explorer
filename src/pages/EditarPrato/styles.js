@@ -131,4 +131,14 @@ justify-content: end;
   }
 }
 
+select{
+width: 100%;
+padding: 12px;
+color: ${({ theme }) => theme.COLORS.Light_100};
+background-color: ${({ theme }) => theme.COLORS.Dark_900} ;
+
+border: 0;
+border-radius: 5px;
+}
+
 `
