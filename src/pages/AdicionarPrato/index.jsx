@@ -20,6 +20,7 @@ export function AdicionarPrato() {
   const [description, setDescription] = useState("");
   const [ingredients, setIngredients] = useState([]);
   const [newIngredients, setNewIngredients] = useState("");
+  const [avatarFile, setAvatarFile] = useState(null);
 
   const navigate = useNavigate();
 
@@ -60,8 +61,10 @@ export function AdicionarPrato() {
     if (!description) {
       return alert("Escreva uma breve descrição do prato");
     }
+
     console.log(title, category, price, ingredients, description);
     const response = await api.post("/pratos", {
+      
       title,
       category,
       description,
@@ -71,6 +74,7 @@ export function AdicionarPrato() {
     alert(response.data);
     navigate("/");
   }
+
 
   return (
     <Container>
@@ -86,7 +90,7 @@ export function AdicionarPrato() {
               <div>
                 <UploadSimple size={25} />
                 Selecione imagem
-                <input type="file" />
+                <input type="file" disabled />
               </div>
             </label>
             <label>
