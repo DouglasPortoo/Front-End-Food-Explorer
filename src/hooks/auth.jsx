@@ -54,8 +54,8 @@ function AuthProvider({ children }) {
       value={{
         signIn,
         signOut,
-        setSearch,
-        search,
+        // setSearch,
+        // search,
         user: data.user,
       }}
     >
