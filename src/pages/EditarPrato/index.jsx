@@ -9,13 +9,25 @@ import { IncludeButton } from "../../components/IncludeButton";
 import { NoteItem } from "../../components/NoteItem";
 
 import { UploadSimple } from "@phosphor-icons/react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { api } from "../../services/api";
 
 export function EditarPrato(){
   const navigate = useNavigate();
+  const params = useParams()
 
   function handleBack() {
     navigate("/");
+  }
+
+  async function handleDelete() {
+    const confirmação = confirm("Tem certeza que deseja excluir este prato?")
+
+    if (confirmação){
+      await api.delete(`/pratos/${params.id}`)
+      navigate("/");
+    }
+    
   }
 
 
@@ -89,7 +101,7 @@ export function EditarPrato(){
           </label>
 
           <div className="button">
-            <button type="button">Excluir Prato</button>
+            <button type="button" onClick={handleDelete}>Excluir Prato</button>
             <IncludeButton type="submit" title="Salvar Alterações" />
           </div>
         </Form>
