@@ -28,6 +28,10 @@ export function Home() {
     navigate(`Prato/${id}`);
   }
 
+  function handleEdit(id) {
+    navigate(`EditarPrato/${id}`);
+  }
+
   useEffect(() => {
     async function fetchPratos() {
       const response = await api.get(`/pratos?title=${search}`);
@@ -93,7 +97,8 @@ export function Home() {
             <Card
               key={prato.id}
               data={prato}
-              onClick={() => handleDetails(prato.id)}
+              onClickDetails={() => handleDetails(prato.id)}
+              onClickEdit={() => handleEdit(prato.id)}
             />
           ))}
         </Carrossel>
@@ -105,7 +110,8 @@ export function Home() {
             <Card
               key={prato.id}
               data={prato}
-              onClick={() => handleDetails(prato.id)}
+              onClickDetails={() => handleDetails(prato.id)}
+              onClickEdit={() => handleEdit(prato.id)}
             />
           ))}
         </Carrossel>
@@ -117,7 +123,8 @@ export function Home() {
             <Card
               key={prato.id}
               data={prato}
-              onClick={() => handleDetails(prato.id)}
+              onClickDetails={() => handleDetails(prato.id)}
+              onClickEdit={() => handleEdit(prato.id)}
             />
           ))}
         </Carrossel>

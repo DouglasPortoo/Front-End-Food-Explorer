@@ -23,7 +23,7 @@ span{
 
 }
 
-cursor: pointer;
+
 transition: all .2s ease-in-out;
 
 &:hover{
@@ -38,6 +38,7 @@ transform: scale(1.1);
 >img{
   width: 11rem;
   height: 11rem;
+  cursor: pointer;
 }
 
 `
