@@ -20,7 +20,6 @@ export function AdicionarPrato() {
   const [description, setDescription] = useState("");
   const [ingredients, setIngredients] = useState([]);
   const [newIngredients, setNewIngredients] = useState("");
-  const [avatarFile, setAvatarFile] = useState(null);
 
   const navigate = useNavigate();
 
