@@ -16,10 +16,12 @@ import { useEffect, useState } from "react";
 export function EditarPrato() {
   const [title, setTitle] = useState("teste");
   const [category, setCategory] = useState("");
-  const [price, setPrice] = useState("") ;
+  const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
   const [ingredients, setIngredients] = useState([]);
   const [newIngredients, setNewIngredients] = useState("");
+
+  const [avatarFile, setAvatarFile] = useState(null);
 
   const navigate = useNavigate();
 
@@ -52,7 +54,19 @@ export function EditarPrato() {
     );
   }
 
+  function handleChangeAvatar(event) {
+    const file = event.target.files[0];
+    setAvatarFile(file);
+  }
+
   async function handleEditPrato() {
+    if (avatarFile) {
+      const fileUploadForm = new FormData();
+      fileUploadForm.append("avatar", avatarFile);
+
+      const response = await api.patch(`/pratos/avatar/${params.id}`, fileUploadForm);
+      console.log(response.data[0].avatar);
+    }
 
     if (ingredients.length == 0) {
       return alert("Adicione ao menos um ingrediente ao prato");
@@ -103,7 +117,7 @@ export function EditarPrato() {
                 <div>
                   <UploadSimple size={25} />
                   Selecione imagem
-                  <input type="file" />
+                  <input type="file" onChange={handleChangeAvatar} />
                 </div>
               </label>
               <label>
