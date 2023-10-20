@@ -81,7 +81,7 @@ export function EditarPrato() {
       setIngredients([...tagsfiltered]);
       setTitle(response.data.title);
       setCategory(response.data.category);
-      setPrice(Number(response.data.price).toFixed(2));
+      setPrice(response.data.price);
       setDescription(response.data.description);
     }
 
