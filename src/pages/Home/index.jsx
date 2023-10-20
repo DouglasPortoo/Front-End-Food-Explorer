@@ -74,8 +74,6 @@ export function Home() {
     } else {
       setSobremesas([]);
     }
-
-    console.log(menuCompleto);
   }, [menuCompleto]);
 
   return (

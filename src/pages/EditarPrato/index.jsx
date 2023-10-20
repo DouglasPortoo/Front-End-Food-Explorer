@@ -11,103 +11,187 @@ import { NoteItem } from "../../components/NoteItem";
 import { UploadSimple } from "@phosphor-icons/react";
 import { useNavigate, useParams } from "react-router-dom";
 import { api } from "../../services/api";
+import { useEffect, useState } from "react";
 
-export function EditarPrato(){
+export function EditarPrato() {
+  const [title, setTitle] = useState("teste");
+  const [category, setCategory] = useState("");
+  const [price, setPrice] = useState("") ;
+  const [description, setDescription] = useState("");
+  const [ingredients, setIngredients] = useState([]);
+  const [newIngredients, setNewIngredients] = useState("");
+
   const navigate = useNavigate();
-  const params = useParams()
+
+  const params = useParams();
 
   function handleBack() {
     navigate("/");
   }
 
   async function handleDelete() {
-    const confirmação = confirm("Tem certeza que deseja excluir este prato?")
+    const confirmação = confirm("Tem certeza que deseja excluir este prato?");
 
-    if (confirmação){
-      await api.delete(`/pratos/${params.id}`)
+    if (confirmação) {
+      await api.delete(`/pratos/${params.id}`);
       navigate("/");
     }
-    
   }
 
+  function handleAddTag() {
+    if (ingredients.includes(newIngredients)) {
+      return alert("Voce ja adicionou esse ingrediente");
+    }
+    setIngredients((prevState) => [...prevState, newIngredients]);
+    setNewIngredients("");
+  }
 
-  return(
+  function handleRemoveTag(deleted) {
+    setIngredients((prevState) =>
+      prevState.filter((ingredients) => ingredients !== deleted)
+    );
+  }
+
+  async function handleEditPrato() {
+
+    if (ingredients.length == 0) {
+      return alert("Adicione ao menos um ingrediente ao prato");
+    }
+
+    if (newIngredients.length > 0) {
+      return alert("adicione o ingrediente ou remova para continuar");
+    }
+
+    const response = await api.put(`/pratos/${params.id}`, {
+      title,
+      category,
+      description,
+      price,
+      ingredients,
+    });
+    alert(response.data);
+    navigate("/");
+  }
+
+  useEffect(() => {
+    async function fetchNote() {
+      const response = await api.get(`/pratos/${params.id}`);
+      const tags = response.data.tags;
+      const tagsfiltered = tags.map((tag) => tag.ingredients);
+      setIngredients([...tagsfiltered]);
+      setTitle(response.data.title);
+      setCategory(response.data.category);
+      setPrice(Number(response.data.price).toFixed(2));
+      setDescription(response.data.description);
+    }
+
+    fetchNote();
+  }, [params.id]);
+
+  return (
     <Container>
       <Container>
-      <Header />
-      <Content>
-        <ButtonText title="Voltar" onClick={handleBack}/>
-        <h1>Editar Prato</h1>
+        <Header />
+        <Content>
+          <ButtonText title="Voltar" onClick={handleBack} />
+          <h1>Editar Prato</h1>
 
-        <Form>
-          <div>
-            <label className="imagem">
-              Imagem do prato
-              <div>
-                <UploadSimple size={25} />
-                Selecione imagem
-                <input type="file" />
-              </div>
-            </label>
+          <Form>
+            <div>
+              <label className="imagem">
+                Imagem do prato
+                <div>
+                  <UploadSimple size={25} />
+                  Selecione imagem
+                  <input type="file" />
+                </div>
+              </label>
+              <label>
+                Nome
+                <Input
+                  placeholder={title}
+                  type="text"
+                  onChange={(e) => setTitle(e.target.value)}
+                />
+              </label>
+
+              <label>
+                Categoria
+                <select
+                  name="select"
+                  onChange={(e) => setCategory(e.target.value)}
+                >
+                  <option
+                    value="Escolhar uma opção "
+                    selected="selected"
+                    disabled
+                  >
+                    Escolha uma opção
+                  </option>
+                  <option value="Refeições">Refeições </option>
+                  <option value="Bebidas">Bebidas</option>
+                  <option value="Sobremesas">Sobremesas</option>
+                </select>
+              </label>
+            </div>
+
+            <div>
+              <label>
+                Ingredientes
+                <div className="tags">
+                  {ingredients.length > 0 &&
+                    ingredients.map((ingredient, index) => (
+                      <NoteItem
+                        key={String(index)}
+                        value={ingredient}
+                        onClick={() => handleRemoveTag(ingredient)}
+                      />
+                    ))}
+                  <NoteItem
+                    isnew
+                    placeholder="Adicionar"
+                    onChange={(e) => setNewIngredients(e.target.value)}
+                    onClick={handleAddTag}
+                    value={newIngredients}
+                  />
+                </div>
+              </label>
+              <label className="preço">
+                Preço
+                <Input
+                  placeholder={"R$" + price}
+                  type="Number"
+                  step=".01"
+                  min="0"
+                  onChange={(e) => setPrice(e.target.value)}
+                />
+              </label>
+            </div>
+
             <label>
-              Nome
-              <Input placeholder="Ex.: Salada Ceasar" type="email" />
+              Descrição
+              <textarea
+                cols="30"
+                rows="11"
+                placeholder={description}
+                onChange={(e) => setDescription(e.target.value)}
+              ></textarea>
             </label>
 
-            <label>
-              Categoria
-              <Input
-                placeholder="Refeição"
-                type="text"
-                data={["Pratos", "Bebidas", "Sobremesas"]}
-                list="Categoria"
-                datalisId="Categoria"
+            <div className="button">
+              <button type="button" onClick={handleDelete}>
+                Excluir Prato
+              </button>
+              <IncludeButton
+                type="button"
+                title="Salvar Alterações"
+                onClick={handleEditPrato}
               />
-            </label>
-          </div>
-
-          <div>
-            <label>
-              Ingredientes
-              <div className="tags">
-              <NoteItem
-                value="Pão Naan"
-                // onChange={(e) => setNewTag(e.target.value)}
-                // onClick={handleNewTag}
-                // value={newTag}
-              />
-              <NoteItem
-                isnew
-                placeholder="Adicionar"
-                // onChange={(e) => setNewTag(e.target.value)}
-                // onClick={handleNewTag}
-                // value={newTag}
-              />
-              </div>
-            </label>
-            <label className="preço">
-              Preço
-              <Input placeholder="R$ 00,00" type="Number" step=".01" min="0"  />
-            </label>
-          </div>
-
-          <label>
-            Descrição
-            <textarea
-              cols="30"
-              rows="11"
-              placeholder="A Salada César é uma opção refrescante para o verão."
-            ></textarea>
-          </label>
-
-          <div className="button">
-            <button type="button" onClick={handleDelete}>Excluir Prato</button>
-            <IncludeButton type="submit" title="Salvar Alterações" />
-          </div>
-        </Form>
-      </Content>
-      <Footer />
+            </div>
+          </Form>
+        </Content>
+        <Footer />
+      </Container>
     </Container>
-    </Container>
-  )
+  );
 }

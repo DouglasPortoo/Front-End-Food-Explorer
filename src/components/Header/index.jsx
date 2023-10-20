@@ -13,7 +13,7 @@ import { useAuth } from "../../hooks/auth";
 import { useNavigate } from "react-router-dom";
 
 export function Header() {
-  const { user, signOut } = useAuth();
+  const { user,setSearch, signOut } = useAuth();
 
   const navigate = useNavigate();
 
@@ -26,9 +26,9 @@ export function Header() {
     navigate("/");
   }
 
-  // function handleSearch(e) {
-  //   setSearch(e.target.value)
-  // }
+  function handleSearch(e) {
+    setSearch(e.target.value)
+  }
 
   return (
     <Container>
@@ -44,8 +44,8 @@ export function Header() {
         placeholder="Busque por pratos ou ingredientes"
         id="search"
         icon={MagnifyingGlass}
-        // onChange={(e) =>handleSearch(e) }
-        // value={search}
+        onChange={(e) =>handleSearch(e) }
+        
       />
       {user.role === "admin" ? (
         <OrderButton title="Novo prato" onClick={() => handleNewPlate()} />

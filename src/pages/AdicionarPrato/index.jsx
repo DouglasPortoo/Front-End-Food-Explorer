@@ -61,9 +61,7 @@ export function AdicionarPrato() {
       return alert("Escreva uma breve descrição do prato");
     }
 
-    console.log(title, category, price, ingredients, description);
     const response = await api.post("/pratos", {
-      
       title,
       category,
       description,
@@ -73,7 +71,6 @@ export function AdicionarPrato() {
     alert(response.data);
     navigate("/");
   }
-
 
   return (
     <Container>
@@ -150,7 +147,7 @@ export function AdicionarPrato() {
                 step=".01"
                 min="0"
                 required
-                onChange={(e) => setPrice(e.target.value)}
+                onChange={(e) => Number(setPrice(e.target.value).toFixed(2))}
               />
             </label>
           </div>

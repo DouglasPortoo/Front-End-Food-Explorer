@@ -6,7 +6,7 @@ import { api } from "../services/api";
 
 function AuthProvider({ children }) {
   const [data, setData] = useState({});
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
 
   async function signIn({ email, password }) {
     try {
