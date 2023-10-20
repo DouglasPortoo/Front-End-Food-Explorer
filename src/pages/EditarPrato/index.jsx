@@ -63,9 +63,7 @@ export function EditarPrato() {
     if (avatarFile) {
       const fileUploadForm = new FormData();
       fileUploadForm.append("avatar", avatarFile);
-
-      const response = await api.patch(`/pratos/avatar/${params.id}`, fileUploadForm);
-      console.log(response.data[0].avatar);
+      await api.patch(`/pratos/avatar/${params.id}`, fileUploadForm);
     }
 
     if (ingredients.length == 0) {
