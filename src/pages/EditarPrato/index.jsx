@@ -16,7 +16,7 @@ import { useEffect, useState } from "react";
 export function EditarPrato() {
   const [title, setTitle] = useState("teste");
   const [category, setCategory] = useState("");
-  const [price, setPrice] = useState("");
+  const [price, setPrice] = useState();
   const [description, setDescription] = useState("");
   const [ingredients, setIngredients] = useState([]);
   const [newIngredients, setNewIngredients] = useState("");
@@ -73,7 +73,8 @@ export function EditarPrato() {
     if (newIngredients.length > 0) {
       return alert("adicione o ingrediente ou remova para continuar");
     }
-
+    
+    console.log(price)
     const response = await api.put(`/pratos/${params.id}`, {
       title,
       category,
@@ -175,7 +176,7 @@ export function EditarPrato() {
                   type="Number"
                   step=".01"
                   min="0"
-                  onChange={(e) => setPrice(e.target.value)}
+                  onChange={(e) => setPrice(Number(e.target.value))}
                 />
               </label>
             </div>

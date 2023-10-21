@@ -12,10 +12,8 @@ import { useEffect, useState } from "react";
 
 import { api } from "../../services/api";
 
-import { useAuth } from "../../hooks/auth";
-
 export function Home() {
-  const { search } = useAuth();
+  const [search, setSearch] = useState("");
 
   const [menuCompleto, setMenuCompleto] = useState([]);
   const [pratos, setPratos] = useState([]);
@@ -78,7 +76,7 @@ export function Home() {
 
   return (
     <Container>
-      <Header />
+      <Header setSearch={setSearch}/>
       <Content>
         <Banner>
           <img src={BannerImg} alt="" />
@@ -88,7 +86,7 @@ export function Home() {
           </div>
         </Banner>
 
-        {pratos.length > 0 && <h1>Refeiçoes</h1>}
+        {pratos.length > 0 && <h1>Refeições</h1>}
 
         <Carrossel>
           {pratos.map((prato) => (

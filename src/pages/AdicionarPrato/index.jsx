@@ -147,7 +147,7 @@ export function AdicionarPrato() {
                 step=".01"
                 min="0"
                 required
-                onChange={(e) => setPrice(e.target.value)}
+                onChange={(e) => setPrice(Number(e.target.value))}
               />
             </label>
           </div>

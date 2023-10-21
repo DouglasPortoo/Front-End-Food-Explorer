@@ -12,8 +12,8 @@ import { useAuth } from "../../hooks/auth";
 
 import { useNavigate } from "react-router-dom";
 
-export function Header() {
-  const { user,setSearch, signOut } = useAuth();
+export function Header({setSearch}) {
+  const { user, signOut } = useAuth();
 
   const navigate = useNavigate();
 
