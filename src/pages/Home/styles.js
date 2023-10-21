@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-height: 100vh;
+/* height: 100vh;
 
 display: grid;
 grid-template-rows: 104px  1fr 77px;
 grid-template-areas: 
 "header"
 "content"
-"footer";
+"footer"; */
 `
 
 export const Banner = styled.div`
@@ -55,10 +55,6 @@ margin-bottom: 3.12rem;
 `
 
 export const Carrossel = styled.div`
-display: grid;
-grid-template-columns: repeat(4,1fr);
-/* gap: 1.8rem; */
-
 margin-top: 1.5rem;
 margin-bottom: 3.12rem;
 ` 

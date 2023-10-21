@@ -12,6 +12,8 @@ import { useEffect, useState } from "react";
 
 import { api } from "../../services/api";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+
 export function Home() {
   const [search, setSearch] = useState("");
 
@@ -19,6 +21,8 @@ export function Home() {
   const [pratos, setPratos] = useState([]);
   const [bebidas, setBebidas] = useState([]);
   const [sobremesas, setSobremesas] = useState([]);
+
+  const [slidePerview, setslidePerview] = useState(4);
 
   const navigate = useNavigate();
 
@@ -74,9 +78,27 @@ export function Home() {
     }
   }, [menuCompleto]);
 
+  useEffect(() => {
+    function handleResize() {
+      if (window.innerWidth < 720) {
+        setslidePerview(1);
+      } else {
+        setslidePerview(4);
+      }
+    }
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [menuCompleto]);
+
   return (
     <Container>
-      <Header setSearch={setSearch}/>
+      <Header setSearch={setSearch} />
       <Content>
         <Banner>
           <img src={BannerImg} alt="" />
@@ -89,40 +111,52 @@ export function Home() {
         {pratos.length > 0 && <h1>Refeições</h1>}
 
         <Carrossel>
-          {pratos.map((prato) => (
-            <Card
-              key={prato.id}
-              data={prato}
-              onClickDetails={() => handleDetails(prato.id)}
-              onClickEdit={() => handleEdit(prato.id)}
-            />
-          ))}
+          <Swiper slidesPerView={slidePerview} navigation>
+            {pratos.map((prato) => (
+              <SwiperSlide key={prato.id}>
+                <Card
+                  key={prato.id}
+                  data={prato}
+                  onClickDetails={() => handleDetails(prato.id)}
+                  onClickEdit={() => handleEdit(prato.id)}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </Carrossel>
 
         {sobremesas.length > 0 && <h1>Sobremesas</h1>}
 
         <Carrossel>
-          {sobremesas.map((prato) => (
-            <Card
-              key={prato.id}
-              data={prato}
-              onClickDetails={() => handleDetails(prato.id)}
-              onClickEdit={() => handleEdit(prato.id)}
-            />
-          ))}
+          <Swiper slidesPerView={slidePerview} navigation>
+            {sobremesas.map((prato) => (
+              <SwiperSlide key={prato.id}>
+                <Card
+                  key={prato.id}
+                  data={prato}
+                  onClickDetails={() => handleDetails(prato.id)}
+                  onClickEdit={() => handleEdit(prato.id)}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </Carrossel>
 
         {bebidas.length > 0 && <h1>Bebidas</h1>}
 
         <Carrossel>
-          {bebidas.map((prato) => (
-            <Card
-              key={prato.id}
-              data={prato}
-              onClickDetails={() => handleDetails(prato.id)}
-              onClickEdit={() => handleEdit(prato.id)}
-            />
-          ))}
+          <Swiper slidesPerView={slidePerview} navigation>
+            {bebidas.map((prato) => (
+              <SwiperSlide key={prato.id}>
+                <Card
+                  key={prato.id}
+                  data={prato}
+                  onClickDetails={() => handleDetails(prato.id)}
+                  onClickEdit={() => handleEdit(prato.id)}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </Carrossel>
       </Content>
       <Footer />

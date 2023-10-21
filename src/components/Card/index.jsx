@@ -27,7 +27,7 @@ export function Card({ data,onClickDetails,onClickEdit,...rest }) {
       <img src={data.img === null ? avatarPlaceholder:`${api.defaults.baseURL}/files/${data.img}`} onClick={onClickDetails} />
       <h1>{data.title}</h1>
       <p>{data.description}</p>
-      <span>R$ {data.price}</span>
+      <span>R$ {Number(data.price).toFixed(2)}</span>
       {user.role === "client" && (
         <Frame>
           <Stepper />

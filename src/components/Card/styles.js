@@ -32,7 +32,7 @@ transition: all .2s ease-in-out;
 -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
 box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
 transition: all 0.4s ease 0s;
-transform: scale(1.1);
+transform: scale(1);
 }
 
 >img{
@@ -58,12 +58,4 @@ background: none;
 border: none;
 color:white;
 
-&:hover{
-
--webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
--moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-transition: all 0.4s ease 0s;
-transform: scale(1.1);
-}
 `
