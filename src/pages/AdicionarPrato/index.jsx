@@ -20,6 +20,7 @@ export function AdicionarPrato() {
   const [description, setDescription] = useState("");
   const [ingredients, setIngredients] = useState([]);
   const [newIngredients, setNewIngredients] = useState("");
+  const [avatarFile, setAvatarFile] = useState(null);
 
   const navigate = useNavigate();
 
@@ -41,7 +42,16 @@ export function AdicionarPrato() {
     );
   }
 
+  function handleChangeAvatar(event) {
+    const file = event.target.files[0];
+    setAvatarFile(file);
+  }
+
   async function handleAddPrato() {
+    if (avatarFile.length == 0) {
+      return alert("Adicione uma foto ao prato");
+    }
+
     if (!title) {
       return alert("De um nome para o prato");
     }
@@ -61,13 +71,15 @@ export function AdicionarPrato() {
       return alert("Escreva uma breve descrição do prato");
     }
 
-    const response = await api.post("/pratos", {
-      title,
-      category,
-      description,
-      price,
-      ingredients,
-    });
+    const formData = new FormData();
+    formData.append("avatar", avatarFile);
+    formData.append("title", title);
+    formData.append("description", description);
+    formData.append("category", category);
+    formData.append("price", price);
+    formData.append("ingredients", ingredients);
+
+    const response = await api.post("/pratos", formData);
     alert(response.data);
     navigate("/");
   }
@@ -86,14 +98,14 @@ export function AdicionarPrato() {
               <div>
                 <UploadSimple size={25} />
                 Selecione imagem
-                <input type="file" disabled />
+                <input type="file" onChange={handleChangeAvatar} />
               </div>
             </label>
             <label>
               Nome
               <Input
                 placeholder="Ex.: Salada Ceasar"
-                type="email"
+                type="text"
                 onChange={(e) => setTitle(e.target.value)}
               />
             </label>
@@ -143,7 +155,7 @@ export function AdicionarPrato() {
               Preço
               <Input
                 placeholder="R$ 00,00"
-                type="Number"
+                type="number"
                 step=".01"
                 min="0"
                 required

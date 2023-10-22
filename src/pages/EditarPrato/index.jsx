@@ -74,7 +74,6 @@ export function EditarPrato() {
       return alert("adicione o ingrediente ou remova para continuar");
     }
     
-    console.log(price)
     const response = await api.put(`/pratos/${params.id}`, {
       title,
       category,
