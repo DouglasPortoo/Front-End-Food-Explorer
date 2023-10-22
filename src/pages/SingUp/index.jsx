@@ -28,7 +28,7 @@ export function SingUp() {
       }
 
       if (password === "" || password.length < 6) {
-        return alert("Digite uma senha valido");
+        return alert("Digite uma senha valida");
       }
 
       const response = await api.post("/users", { name, email, password });
