@@ -12,6 +12,7 @@ import { UploadSimple } from "@phosphor-icons/react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { api } from "../../services/api";
+import { SideMenu } from "../../components/SideMenu";
 
 export function AdicionarPrato() {
   const [title, setTitle] = useState("");
@@ -21,6 +22,8 @@ export function AdicionarPrato() {
   const [ingredients, setIngredients] = useState([]);
   const [newIngredients, setNewIngredients] = useState("");
   const [avatarFile, setAvatarFile] = useState(null);
+
+  const [menuIsOpen, setMenuIsOpen] = useState("false");
 
   const navigate = useNavigate();
 
@@ -86,10 +89,14 @@ export function AdicionarPrato() {
 
   return (
     <Container>
-      <Header />
+      <SideMenu
+        menuIsOpen={menuIsOpen}
+        onCloseMenu={() => setMenuIsOpen(false)}
+      />
+      <Header onOpenMenu={() => setMenuIsOpen(true)} />
       <Content>
-        <ButtonText title="Voltar" onClick={handleBack} />
-        <h1>Adicionar Prato</h1>
+        <ButtonText title=" voltar" onClick={handleBack} />
+        <h1>Novo Prato</h1>
 
         <Form>
           <div>

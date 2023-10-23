@@ -9,6 +9,8 @@ grid-template-areas:
 "header"
 "content"
 "footer"; */
+
+
 `
 
 export const Banner = styled.div`

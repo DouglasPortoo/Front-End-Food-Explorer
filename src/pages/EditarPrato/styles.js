@@ -3,12 +3,17 @@ import styled from "styled-components";
 export const Container = styled.div`
 height: 100vh;
 
-display: grid;
+/* display: grid;
 grid-template-rows: 104px  1fr 77px;
 grid-template-areas: 
 "header"
 "content"
-"footer";
+"footer"; */
+
+@media (max-width:770px) {
+  display: flex;
+  flex-direction: column;
+  }
 
 h1{
 margin: 1.5rem 0 2rem;
@@ -70,6 +75,7 @@ line-height: 1.5rem;
 
 label .tags {
 display:flex;
+flex-wrap: wrap;
 gap: 1rem;
 background-color: ${({ theme }) => theme.COLORS.Dark_900} ;
 color: ${({ theme }) => theme.COLORS.Light_500};
@@ -139,6 +145,37 @@ background-color: ${({ theme }) => theme.COLORS.Dark_900} ;
 
 border: 0;
 border-radius: 5px;
+}
+
+@media (max-width:770px) {
+  >div{
+  display:flex;
+  flex-direction: column;
+  }
+
+  .imagem{
+    width: 100%;
+    >div{
+
+      justify-content: start;
+    }
+  }
+
+  .preço{
+width: 100%;
+}
+  }
+
+  .button{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  
+  button{
+    width: 50%;
+    
+  }
 }
 
 `

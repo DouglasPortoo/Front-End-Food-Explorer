@@ -1,8 +1,12 @@
-import { X, MagnifyingGlass } from "@phosphor-icons/react";
 import { Container, Header, Main } from "./styles";
+
+import { X, MagnifyingGlass } from "@phosphor-icons/react";
+
 import { Input } from "../Input";
 import { Footer } from "../Footer";
+
 import { useAuth } from "../../hooks/auth";
+
 import { useNavigate } from "react-router-dom";
 
 export function SideMenu({setSearch,menuIsOpen, onCloseMenu}) {
@@ -29,13 +33,15 @@ export function SideMenu({setSearch,menuIsOpen, onCloseMenu}) {
         <p>Menu</p>
       </Header>
       <Main>
-        <Input 
+
+        {setSearch && <Input 
           type="text"
           placeholder="Busque por pratos ou ingredientes"
           id="search"
           icon={MagnifyingGlass}
           onChange={(e) =>handleSearch(e) }
-        />
+        />}
+        
         {user.role === "admin" && (
         <span onClick={handleNewPlate}  >Novo Prato</span>
       )}

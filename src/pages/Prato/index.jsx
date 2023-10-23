@@ -4,10 +4,11 @@ import {
   Frame,
   SubFrame,
   TagContainer,
+  Content,
 } from "./styles";
 
 import { Header } from "../../components/Header";
-import { Content } from "../../components/Content";
+// import { Content } from "../../components/Content";
 import { Footer } from "../../components/Footer";
 import { ButtonText } from "../../components/ButtonText";
 import { Tag } from "../../components/Tag";
@@ -19,9 +20,12 @@ import { useAuth } from "../../hooks/auth";
 import { useEffect, useState } from "react";
 import avatarPlaceholder from "../../../assets/semfoto.svg";
 import { api } from "../../services/api";
+import { SideMenu } from "../../components/SideMenu";
 
 export function Prato() {
   const { user } = useAuth();
+
+  const [menuIsOpen, setMenuIsOpen] = useState("false");
 
   const [data, setData] = useState("");
 
@@ -53,9 +57,13 @@ export function Prato() {
 
   return (
     <Container>
-      <Header />
+      <SideMenu
+        menuIsOpen={menuIsOpen}
+        onCloseMenu={() => setMenuIsOpen(false)}
+      />
+      <Header onOpenMenu={() => setMenuIsOpen(true)} />
       <Content>
-        <ButtonText title="Voltar" onClick={handleBack} />
+        <ButtonText title=" voltar" onClick={handleBack} />
 
         <Frame>
           <img src={avatarUrl} />

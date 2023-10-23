@@ -17,6 +17,7 @@ import { SideMenu } from "../../components/SideMenu";
 
 export function Home() {
   const [search, setSearch] = useState("");
+  const [menuIsOpen, setMenuIsOpen] = useState("false");
 
   const [menuCompleto, setMenuCompleto] = useState([]);
   const [pratos, setPratos] = useState([]);
@@ -25,7 +26,7 @@ export function Home() {
 
   const [slidePerview, setslidePerview] = useState(4);
 
-  const [menuIsOpen, setMenuIsOpen] = useState("false");
+  
 
   const navigate = useNavigate();
 

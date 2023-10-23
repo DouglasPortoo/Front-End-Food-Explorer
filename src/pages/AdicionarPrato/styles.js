@@ -3,12 +3,17 @@ import styled from "styled-components";
 export const Container= styled.div`
 height: 100vh;
 
-display: grid;
+/* display: grid;
 grid-template-rows: 104px  1fr 77px;
 grid-template-areas: 
 "header"
 "content"
-"footer";
+"footer"; */
+
+@media (max-width:770px) {
+  display: flex;
+  flex-direction: column;
+  }
 
 h1{
   margin: 1.5rem 0 2rem;
@@ -26,6 +31,7 @@ flex-direction: column;
 gap: 2rem;
 
 margin-bottom: 7.18rem;
+
 
 >div{
   display: flex;
@@ -50,10 +56,11 @@ line-height: 100%;
 
   >div{
   display: flex;
+  
   padding: 0.5rem;
   justify-content: center;
   align-items: center;
-  gap: 0,5rem;
+  gap: 0.5rem;
   background-color: ${({ theme }) => theme.COLORS.Dark_900} ;
   border:none;
   border-radius: 0.3rem;
@@ -67,10 +74,12 @@ line-height: 100%;
   div>input{
     display: none;
   }
+
 }
 
 label .tags {
 display:flex;
+flex-wrap: wrap;
 gap: 1rem;
 background-color: ${({ theme }) => theme.COLORS.Dark_900} ;
 color: ${({ theme }) => theme.COLORS.Light_500};
@@ -122,5 +131,26 @@ background-color: ${({ theme }) => theme.COLORS.Dark_900} ;
 border: 0;
 border-radius: 5px;
 }
+
+@media (max-width:770px) {
+  >div{
+  display:flex;
+  flex-direction: column;
+  }
+
+  .imagem{
+    width: 100%;
+    >div{
+
+      justify-content: start;
+    }
+  }
+
+  .preço{
+width: 100%;
+}
+  }
+
+
 
 `
