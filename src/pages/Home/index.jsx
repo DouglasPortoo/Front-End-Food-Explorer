@@ -85,7 +85,7 @@ export function Home() {
   useEffect(() => {
     function handleResize() {
       if (window.innerWidth < 770) {
-        setslidePerview(2);
+        setslidePerview(1);
       } else {
         setslidePerview(4);
       }

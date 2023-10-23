@@ -75,7 +75,7 @@ export function SingUp() {
             <Input
               placeholder="No mínimo 5 caracteres"
               type="password"
-              minlength="5"
+              minLength="5"
               required
               onChange={(e) => setPassword(e.target.value)}
             />
