@@ -3,7 +3,7 @@ import { Container } from "./styles";
 import Logo from "../../assets/logo.svg";
 import LogoAdmin from "../../assets/logoAdmin.svg";
 
-import { MagnifyingGlass, SignOut } from "@phosphor-icons/react";
+import { MagnifyingGlass, SignOut, List,Receipt } from "@phosphor-icons/react";
 
 import { OrderButton } from "../OrderButton";
 import { Input } from "../Input";
@@ -12,7 +12,7 @@ import { useAuth } from "../../hooks/auth";
 
 import { useNavigate } from "react-router-dom";
 
-export function Header({setSearch}) {
+export function Header({setSearch, onOpenMenu}) {
   const { user, signOut } = useAuth();
 
   const navigate = useNavigate();
@@ -32,14 +32,17 @@ export function Header({setSearch}) {
 
   return (
     <Container>
+      <List className="list" size={35} onClick={onOpenMenu}/>
       {user.role === "admin" ? (
         <img src={LogoAdmin} alt="Logo" />
       ) : (
         <img src={Logo} alt="Logo" />
       )}
-      <label htmlFor="search">Busque por pratos ou ingredientes</label>
+      <Receipt className="Receipt" size={35}/>
+      <label className="media" htmlFor="search">Busque por pratos ou ingredientes</label>
 
       <Input
+        className="media"
         type="text"
         placeholder="Busque por pratos ou ingredientes"
         id="search"
@@ -48,12 +51,12 @@ export function Header({setSearch}) {
         
       />
       {user.role === "admin" ? (
-        <OrderButton title="Novo prato" onClick={() => handleNewPlate()} />
+        <OrderButton className="media" title="Novo prato" onClick={() => handleNewPlate()} />
       ) : (
-        <OrderButton title="Meu pedido (0)" />
+        <OrderButton className="media" title="Meu pedido (0)" />
       )}
 
-      <SignOut size={62} onClick={handleSignOut} />
+      <SignOut className="media" size={62} onClick={handleSignOut} />
     </Container>
   );
 }

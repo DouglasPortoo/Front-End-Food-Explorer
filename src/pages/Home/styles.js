@@ -24,11 +24,27 @@ background-color: ${({ theme }) => theme.COLORS.Gradients_200};
 margin-top: 9.37rem;
 margin-bottom: 3.12rem;
 
+@media (max-width:770px) {
+    
+  justify-content: flex-end;
+
+  }
+
 >img{
   position: absolute;
   margin-top: -9.37rem;
   left: 9.37rem;
+
+  @media (max-width:770px) {
+    width: 350px;
+    height: 349px;
+
+    margin-top: -7.90rem;
+    left: 3.37rem;
+    
+  }
 }
+
 
 >div{
   display: flex;
@@ -36,6 +52,13 @@ margin-bottom: 3.12rem;
   justify-content: center;
   
   margin-left: 31.2rem;
+
+  @media (max-width:770px) {
+    
+    margin-left: 0;
+    padding-right: 10px
+
+  }
 
   >h1{
     color: ${({ theme }) => theme.COLORS.Light_300};
@@ -51,6 +74,8 @@ margin-bottom: 3.12rem;
     font-weight: 400;
     line-height: 100%; 
   }
+
+
 }
 `
 

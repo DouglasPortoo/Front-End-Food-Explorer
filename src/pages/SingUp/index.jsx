@@ -27,7 +27,7 @@ export function SingUp() {
         return alert("Digite um nome email");
       }
 
-      if (password === "" || password.length < 6) {
+      if (password === "" || password.length < 5) {
         return alert("Digite uma senha valida");
       }
 
@@ -73,9 +73,9 @@ export function SingUp() {
           <label>
             Senha
             <Input
-              placeholder="No mínimo 6 caracteres"
+              placeholder="No mínimo 5 caracteres"
               type="password"
-              minlength="6"
+              minlength="5"
               required
               onChange={(e) => setPassword(e.target.value)}
             />

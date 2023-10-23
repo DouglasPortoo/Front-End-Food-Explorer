@@ -13,6 +13,7 @@ import { useEffect, useState } from "react";
 import { api } from "../../services/api";
 
 import { Swiper, SwiperSlide } from "swiper/react";
+import { SideMenu } from "../../components/SideMenu";
 
 export function Home() {
   const [search, setSearch] = useState("");
@@ -23,6 +24,8 @@ export function Home() {
   const [sobremesas, setSobremesas] = useState([]);
 
   const [slidePerview, setslidePerview] = useState(4);
+
+  const [menuIsOpen, setMenuIsOpen] = useState("false");
 
   const navigate = useNavigate();
 
@@ -80,8 +83,8 @@ export function Home() {
 
   useEffect(() => {
     function handleResize() {
-      if (window.innerWidth < 720) {
-        setslidePerview(1);
+      if (window.innerWidth < 770) {
+        setslidePerview(2);
       } else {
         setslidePerview(4);
       }
@@ -98,7 +101,12 @@ export function Home() {
 
   return (
     <Container>
-      <Header setSearch={setSearch} />
+      <SideMenu
+        setSearch={setSearch}
+        menuIsOpen={menuIsOpen}
+        onCloseMenu={() => setMenuIsOpen(false)}
+      />
+      <Header setSearch={setSearch} onOpenMenu={() => setMenuIsOpen(true)} />
       <Content>
         <Banner>
           <img src={BannerImg} alt="" />
