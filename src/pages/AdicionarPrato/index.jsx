@@ -18,7 +18,7 @@ export function AdicionarPrato() {
   const [category, setCategory] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
-  const [ingredients, setIngredients] = useState([]);
+  const [ingredients, setIngredients] = useState([""]);
   const [newIngredients, setNewIngredients] = useState("");
   const [avatarFile, setAvatarFile] = useState(null);
 
@@ -124,8 +124,8 @@ export function AdicionarPrato() {
                   Escolha uma opção
                 </option>
                 <option value="Refeições">Refeições </option>
-                <option value="Bebidas">Bebidas</option>
                 <option value="Sobremesas">Sobremesas</option>
+                <option value="Bebidas">Bebidas</option>
               </select>
             </label>
           </div>

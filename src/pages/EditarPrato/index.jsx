@@ -121,7 +121,7 @@ export function EditarPrato() {
               <label>
                 Nome
                 <Input
-                  placeholder={title}
+                  value={title}
                   type="text"
                   onChange={(e) => setTitle(e.target.value)}
                 />
@@ -132,6 +132,7 @@ export function EditarPrato() {
                 <select
                   name="select"
                   onChange={(e) => setCategory(e.target.value)}
+                  value={category}
                 >
                   <option
                     value="Escolhar uma opção "
@@ -171,7 +172,7 @@ export function EditarPrato() {
               <label className="preço">
                 Preço
                 <Input
-                  placeholder={"R$" + price}
+                  value={price}
                   type="Number"
                   step=".01"
                   min="0"
@@ -185,7 +186,7 @@ export function EditarPrato() {
               <textarea
                 cols="30"
                 rows="11"
-                placeholder={description}
+                value={description}
                 onChange={(e) => setDescription(e.target.value)}
               ></textarea>
             </label>
