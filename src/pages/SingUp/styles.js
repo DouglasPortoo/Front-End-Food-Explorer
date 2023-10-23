@@ -7,6 +7,11 @@ display: flex ;
 justify-content: center;
 align-content: center;
 
+@media (max-width: 770px){
+  flex-direction: column;
+  align-items: center;
+}
+
 `
 export const ImageLogo = styled.div`
 width: 50%;
@@ -32,6 +37,11 @@ display: flex;
 flex-direction: column;
 gap: 32px;
 
+@media (max-width: 770px){
+  width: 100%;
+  background-color:transparent
+}
+
 >h1{
 color: ${({ theme }) => theme.COLORS.Light_100};
 text-align: center;
@@ -40,6 +50,10 @@ font-family: 'Poppins', sans-serif;
 font-size: 32px;
 font-weight: 500;
 line-height: 140%;
+
+@media (max-width: 770px){
+  display: none;
+}
 }
 
 >label{
