@@ -5,12 +5,14 @@ import { Footer } from "../Footer";
 import { useAuth } from "../../hooks/auth";
 import { useNavigate } from "react-router-dom";
 
-
-
 export function SideMenu({setSearch,menuIsOpen, onCloseMenu}) {
-  const { signOut } = useAuth();
+  const { user,signOut } = useAuth();
 
   const navigate = useNavigate();
+
+  function handleNewPlate() {
+    navigate(`/AdicionarPrato`);
+  }
 
   function handleSearch(e) {
     setSearch(e.target.value)
@@ -34,6 +36,9 @@ export function SideMenu({setSearch,menuIsOpen, onCloseMenu}) {
           icon={MagnifyingGlass}
           onChange={(e) =>handleSearch(e) }
         />
+        {user.role === "admin" && (
+        <span onClick={handleNewPlate}  >Novo Prato</span>
+      )}
         <span onClick={handleSignOut} >Sair</span>
       </Main>
       <Footer />
