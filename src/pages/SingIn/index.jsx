@@ -39,9 +39,9 @@ export function SingIn() {
           <label>
             Senha
             <Input
-              placeholder="No mínimo 6 caracteres"
+              placeholder="No mínimo 5 caracteres"
               type="password"
-              minLength="6"
+              minLength="5"
               required
               onChange={(e) => setPassword(e.target.value)}
             />
