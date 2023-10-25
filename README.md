@@ -4,7 +4,7 @@
 
 # Apresentação do projeto
 
-Este é um projeto fullstack de um cardápio digital para um restaurante fictício.
+Este é um projeto web de um cardápio digital para um restaurante fictício.
 
 Trata-se de uma aplicação front-end simulando um restaurante que vai desde a visualização de um prato até o pagamento do mesmo, bem como a versão mobile do projeto(apenas em 770px por enquanto).
 
