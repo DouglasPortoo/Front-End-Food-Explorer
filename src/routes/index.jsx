@@ -6,7 +6,7 @@ import { useAuth } from "../hooks/auth";
 import { ClientRoutes } from "./client.routes";
 
 export function Routes() {
-  const { user } = useAuth();
+  const { user} = useAuth();
 
   function AcessRoute() {
     switch (user.role) {
