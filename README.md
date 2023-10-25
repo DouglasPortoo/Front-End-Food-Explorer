@@ -76,7 +76,7 @@ Inicie o servidor
 
 Segue o projeto Back-End
 
-[Food Explorer - Front-End](https://github.com/DouglasPortoo/Back-end-Desafio-Final-Explorer/tree/master)
+[API](https://github.com/DouglasPortoo/Back-end-Desafio-Final-Explorer/tree/master)
 
 
 ## 🔗 Links
