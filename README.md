@@ -6,7 +6,7 @@
 
 Este é um projeto  fullstack de um cardápio digital para um restaurante fictício.
 
-Trata-se de uma aplicação de ponta a ponta com front-end e back-end simulando um restaurante que vai desde a visualização de um prato até o pagamento do mesmo, bem como a versão mobile do projeto.
+Trata-se de uma aplicação front-end simulando um restaurante que vai desde a visualização de um prato até o pagamento do mesmo, bem como a versão mobile do projeto.
 
 
 
@@ -21,19 +21,6 @@ Front-End
 - React Router Dom
 - phosphor-icons/react
 - Axios
-
-Back-End
-- Node.js
-- SQLite
-- Knex
-- Nodemon
-- JSON Web Token
-- Multer
-- CORS
-- BCryptjs
-- Express
-- pm2
-- cookie-parser
 
 
 
