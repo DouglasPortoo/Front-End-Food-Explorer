@@ -166,7 +166,7 @@ export function Home() {
           </Swiper>
         </Carrossel>
       </Content>
-      <Footer />
+      {/* <Footer /> */}
     </Container>
   );
 }
