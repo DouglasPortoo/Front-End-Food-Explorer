@@ -9,7 +9,7 @@ import {
 
 import { Header } from "../../components/Header";
 // import { Content } from "../../components/Content";
-import { Footer } from "../../components/Footer";
+// import { Footer } from "../../components/Footer";
 import { ButtonText } from "../../components/ButtonText";
 import { Tag } from "../../components/Tag";
 import { Stepper } from "../../components/Stepper";
@@ -21,6 +21,7 @@ import { useEffect, useState } from "react";
 import avatarPlaceholder from "../../assets/semfoto.svg";
 import { api } from "../../services/api";
 import { SideMenu } from "../../components/SideMenu";
+
 
 export function Prato() {
   const { user } = useAuth();
@@ -95,7 +96,7 @@ export function Prato() {
           </SubFrame>
         </Frame>
       </Content>
-      <Footer />
+      {/* <Footer /> */}
     </Container>
   );
 }

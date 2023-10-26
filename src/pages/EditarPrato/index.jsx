@@ -2,7 +2,7 @@ import { Container, Form } from "./styles";
 
 import { Header } from "../../components/Header";
 import { Content } from "../../components/Content";
-import { Footer } from "../../components/Footer";
+// import { Footer } from "../../components/Footer";
 import { ButtonText } from "../../components/ButtonText";
 import { Input } from "../../components/Input";
 import { IncludeButton } from "../../components/IncludeButton";
@@ -76,7 +76,7 @@ export function EditarPrato() {
     if (newIngredients.length > 0) {
       return alert("adicione o ingrediente ou remova para continuar");
     }
-    
+
     const response = await api.put(`/pratos/${params.id}`, {
       title,
       category,
@@ -106,11 +106,11 @@ export function EditarPrato() {
   return (
     <Container>
       <Container>
-      <SideMenu
-        menuIsOpen={menuIsOpen}
-        onCloseMenu={() => setMenuIsOpen(false)}
-      />
-      <Header onOpenMenu={() => setMenuIsOpen(true)} />
+        <SideMenu
+          menuIsOpen={menuIsOpen}
+          onCloseMenu={() => setMenuIsOpen(false)}
+        />
+        <Header onOpenMenu={() => setMenuIsOpen(true)} />
         <Content>
           <ButtonText title=" voltar" onClick={handleBack} />
           <h1>Editar Prato</h1>
@@ -210,7 +210,7 @@ export function EditarPrato() {
             </div>
           </Form>
         </Content>
-        <Footer />
+        {/* <Footer /> */}
       </Container>
     </Container>
   );

@@ -3,7 +3,7 @@ import { Container, Header, Main } from "./styles";
 import { X, MagnifyingGlass } from "@phosphor-icons/react";
 
 import { Input } from "../Input";
-import { Footer } from "../Footer";
+// import { Footer } from "../Footer";
 
 import { useAuth } from "../../hooks/auth";
 
@@ -47,7 +47,7 @@ export function SideMenu({setSearch,menuIsOpen, onCloseMenu}) {
       )}
         <span onClick={handleSignOut} >Sair</span>
       </Main>
-      <Footer />
+      {/* <Footer /> */}
     </Container>
   );
 }
