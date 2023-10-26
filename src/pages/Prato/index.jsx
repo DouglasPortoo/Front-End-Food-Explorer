@@ -18,7 +18,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import { useAuth } from "../../hooks/auth";
 import { useEffect, useState } from "react";
-import avatarPlaceholder from "../../../assets/semfoto.svg";
+import avatarPlaceholder from "../../assets/semfoto.svg";
 import { api } from "../../services/api";
 import { SideMenu } from "../../components/SideMenu";
 

@@ -8,7 +8,7 @@ import { Stepper } from "../Stepper";
 
 import { useAuth } from "../../hooks/auth";
 
-import avatarPlaceholder from "../../../assets/semfoto.svg";
+import avatarPlaceholder from "../../assets/semfoto.svg";
 import { api } from "../../services/api";
 
 export function Card({ data,onClickDetails,onClickEdit,...rest }) {
