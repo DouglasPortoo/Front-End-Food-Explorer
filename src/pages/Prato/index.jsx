@@ -13,14 +13,13 @@ import { Tag } from "../../components/Tag";
 import { Stepper } from "../../components/Stepper";
 import { IncludeButton } from "../../components/IncludeButton";
 import { useNavigate, useParams } from "react-router-dom";
-import { Footer } from "../../components/Footer";
+//import { Footer } from "../../components/Footer";
 
 import { useAuth } from "../../hooks/auth";
 import { useEffect, useState } from "react";
 import avatarPlaceholder from "../../assets/semfoto.svg";
 import { api } from "../../services/api";
 import { SideMenu } from "../../components/SideMenu";
-
 
 export function Prato() {
   const { user } = useAuth();
@@ -95,7 +94,7 @@ export function Prato() {
           </SubFrame>
         </Frame>
       </Content>
-      <Footer />
+      {/* <Footer /> */}
     </Container>
   );
 }

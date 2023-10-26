@@ -6,7 +6,7 @@ import { ButtonText } from "../../components/ButtonText";
 import { Input } from "../../components/Input";
 import { IncludeButton } from "../../components/IncludeButton";
 import { NoteItem } from "../../components/NoteItem";
-import { Footer } from "../../components/Footer";
+//import { Footer } from "../../components/Footer";
 
 import { UploadSimple } from "@phosphor-icons/react";
 import { useNavigate, useParams } from "react-router-dom";
@@ -210,7 +210,7 @@ export function EditarPrato() {
             </div>
           </Form>
         </Content>
-        <Footer />
+        {/* <Footer /> */}
       </Container>
     </Container>
   );
