@@ -8,8 +8,7 @@ import {
 } from "./styles";
 
 import { Header } from "../../components/Header";
-// import { Content } from "../../components/Content";
-// import { Footer } from "../../components/Footer";
+import { Footer } from "../../components/Footer";
 import { ButtonText } from "../../components/ButtonText";
 import { Tag } from "../../components/Tag";
 import { Stepper } from "../../components/Stepper";
@@ -96,7 +95,7 @@ export function Prato() {
           </SubFrame>
         </Frame>
       </Content>
-      {/* <Footer /> */}
+      <Footer />
     </Container>
   );
 }

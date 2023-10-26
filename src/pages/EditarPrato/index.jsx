@@ -2,7 +2,7 @@ import { Container, Form } from "./styles";
 
 import { Header } from "../../components/Header";
 import { Content } from "../../components/Content";
-// import { Footer } from "../../components/Footer";
+import { Footer } from "../../components/Footer";
 import { ButtonText } from "../../components/ButtonText";
 import { Input } from "../../components/Input";
 import { IncludeButton } from "../../components/IncludeButton";
@@ -210,7 +210,7 @@ export function EditarPrato() {
             </div>
           </Form>
         </Content>
-        {/* <Footer /> */}
+        <Footer />
       </Container>
     </Container>
   );
