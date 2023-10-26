@@ -8,12 +8,12 @@ import {
 } from "./styles";
 
 import { Header } from "../../components/Header";
-import { Footer } from "../../components/Footer";
 import { ButtonText } from "../../components/ButtonText";
 import { Tag } from "../../components/Tag";
 import { Stepper } from "../../components/Stepper";
 import { IncludeButton } from "../../components/IncludeButton";
 import { useNavigate, useParams } from "react-router-dom";
+import { Footer } from "../../components/Footer";
 
 import { useAuth } from "../../hooks/auth";
 import { useEffect, useState } from "react";

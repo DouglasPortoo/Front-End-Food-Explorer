@@ -2,11 +2,11 @@ import { Container, Form } from "./styles";
 
 import { Header } from "../../components/Header";
 import { Content } from "../../components/Content";
-import { Footer } from "../../components/Footer";
 import { ButtonText } from "../../components/ButtonText";
 import { Input } from "../../components/Input";
 import { IncludeButton } from "../../components/IncludeButton";
 import { NoteItem } from "../../components/NoteItem";
+import { Footer } from "../../components/Footer";
 
 import { UploadSimple } from "@phosphor-icons/react";
 import { useNavigate, useParams } from "react-router-dom";
