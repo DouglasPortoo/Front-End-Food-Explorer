@@ -1,5 +1,5 @@
 import { Container } from "./styles";
-import LogoFooter from "../../assets/LogoFooter.svg";
+import LogoFooter from "../../assets/logoFooter.svg";
 
 export function Footer() {
   return (
