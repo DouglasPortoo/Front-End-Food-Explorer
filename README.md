@@ -22,6 +22,13 @@ Front-End
 - phosphor-icons/react
 - Axios
 
+![image](https://github.com/DouglasPortoo/Front-End-Food-Explorer/assets/129231898/f0057588-2e90-4a9f-9574-22d7dfd48123)
+![image](https://github.com/DouglasPortoo/Front-End-Food-Explorer/assets/129231898/58c13a55-7b3f-4854-bbe3-9396b48c53ad)
+![image](https://github.com/DouglasPortoo/Front-End-Food-Explorer/assets/129231898/1027d5bd-c3e3-437a-a3e1-6e3000e836c8)
+![image](https://github.com/DouglasPortoo/Front-End-Food-Explorer/assets/129231898/747f6de2-4307-4a0b-ade3-da41647889f3)
+
+
+
 
 
 
