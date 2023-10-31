@@ -6,7 +6,7 @@ import { ButtonText } from "../../components/ButtonText";
 import { Input } from "../../components/Input";
 import { IncludeButton } from "../../components/IncludeButton";
 import { NoteItem } from "../../components/NoteItem";
-//import { Footer } from "../../components/Footer";
+// import { Footer } from "../../components/Footer";
 
 import { UploadSimple } from "@phosphor-icons/react";
 import { useNavigate } from "react-router-dom";
@@ -75,12 +75,19 @@ export function AdicionarPrato() {
     }
 
     const formData = new FormData();
-    formData.append("avatar", avatarFile);
-    formData.append("title", title);
-    formData.append("description", description);
-    formData.append("category", category);
-    formData.append("price", price);
-    formData.append("ingredients", ingredients);
+
+    const data = {
+      avatar: avatarFile,
+      title,
+      description,
+      category,
+      price,
+      ingredients,
+    };
+
+    for (const key in data) {
+      formData.append(key, data[key]);
+    }
 
     const response = await api.post("/pratos", formData);
     alert(response.data);
